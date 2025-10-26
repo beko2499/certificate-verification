@@ -21,10 +21,19 @@ class AdminController extends Controller
         }
         return back()->with('error', 'اسم المستخدم أو كلمة المرور غير صحيحة');
     }
+    public function dashboard()
+{
+    if (!Session::has('admin_id')) {
+        return redirect('/admin/login');
+    }
+
+    return view('admin.dashboard');
+}
 
     public function logout() {
         Session::forget('admin_id');
-        return redirect('/admin/login');
+        return redirect()->route('admin.dashboard');
+
     }
 }
 

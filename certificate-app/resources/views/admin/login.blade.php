@@ -13,7 +13,7 @@
         <div class="alert alert-danger">{{ session('error') }}</div>
     @endif
 
-    <form method="POST" action="{{ route('admin.login.submit') }}">
+    <form action="/admin/login" method="POST">
         @csrf
         <div class="mb-3">
             <label>اسم المستخدم</label>
